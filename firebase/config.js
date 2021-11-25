@@ -26,4 +26,5 @@ const pushData = async ()=>{
 }
 pushData();
 getData()
+
 export default db
