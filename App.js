@@ -10,26 +10,29 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './pages/Login';
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
+      <Stack.Navigator initialRouteName="Home" 
+
+      
+      screenOptions={{
         headerShown: false
       }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen options={{title:'welcome'}}
+        name="Home" component={Home} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default App;
+export default App; 

@@ -8,8 +8,10 @@ const windowHeight = Dimensions.get('window').height;
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { aColor, bColor } from '../components/color';
+// import { aColor, bColor } from '../components/color';
 export default function Login({ navigation }) {
+    const aColor='white'
+    const bColor='blue'
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
     const [Error, setError] = useState("")

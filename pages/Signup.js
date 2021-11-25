@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, StatusBar, SafeAreaView, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
@@ -7,9 +6,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { ApiGetService, ApiPostService } from './Db/Api';
+import { aColor, bColor } from '../components/color';
 
-export default function SignupPage({ navigation }) {
+
+export default function Signup({ navigation }) {
     const [Email, setEmail] = useState("")
     const [UserName, setUserName] = useState("")
     const [Password, setPassword] = useState("")
@@ -38,36 +38,22 @@ export default function SignupPage({ navigation }) {
             setError("Enter Valid Email")
         }
         else {
-            data = {
-                email: Email,
-                name: UserName,
-                password: Password
-            }
-            var a = await ApiPostService('user/signup/', data)
-            if (a.success == false) {
-                setError("Email is Alread exists.. ")
-            }
-            else {
-                setError("SignUp success ")
-                await alert("Signup Success ")
-                navigation.navigate("Login")
-            }
+            alert(UserName)
         }
     }
 
     return (
-        <KeyboardAwareScrollView >
+        <KeyboardAwareScrollView style={{ backgroundColor: bColor }}>
             <SafeAreaView style={styles.container}>
                 <View
                 // style={{flex:1, justifyContent: 'space-around', height: windowHeight }}
                 >
                     <View>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold', marginTop: 40 }}><Text style={{ color: 'blue' }}>G</Text><Text style={{ color: 'black' }}>E</Text><Text style={{ color: 'orange' }}>B</Text><Text style={{ color: 'green' }}>O</Text><Text style={{ color: 'red' }}>T</Text></Text>
+                        <Text style={{ fontSize: 30, fontWeight: 'bold', marginTop: 40 }}><Text style={{ color: aColor, backgroundColor: bColor, borderTopLeftRadius: 15, paddingLeft: 10, borderBottomLeftRadius: 15 }}>Dis</Text><Text style={{ borderTopRightRadius: 15, borderBottomRightRadius: 15, color: bColor, paddingRight: 10, backgroundColor: aColor }}>cord</Text></Text>
 
-                        <Text style={styles.createHead}>
-                            Create Account,
-                        </Text>
-                        <Text style={styles.createHelp}>Sign up to get started!</Text>
+                        <View style={{ width: '100%', alignItems: 'center', marginTop: 100 }}>
+                            <Text style={styles.createHelp}>Sign up! </Text>
+                        </View>
                         <View style={styles.textInputView}>
                             <View style={styles.searchSection}>
                                 <MaterialIcons style={styles.searchIcon} name="email" size={20} color="black" />
@@ -111,7 +97,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight,
-        marginHorizontal: (10 * windowWidth) / 100
+        marginHorizontal: (10 * windowWidth) / 100,
+        backgroundColor: bColor
     },
     createHead: {
         fontSize: 25,
@@ -122,7 +109,7 @@ const styles = StyleSheet.create({
     createHelp: {
         fontWeight: '900',
         fontSize: 21,
-        color: '#888888',
+        color: 'black',
         marginTop: -(1 * windowHeight) / 100
     },
     textInputView: {
@@ -140,7 +127,7 @@ const styles = StyleSheet.create({
         marginTop: (6 * windowHeight) / 100,
     },
     loginButton: {
-        backgroundColor: '#ec4646',
+        backgroundColor: aColor,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 8,
@@ -156,7 +143,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     signinLink: {
-        color: 'red'
+        color: aColor
     },
     searchSection: {
         flex: 1,
