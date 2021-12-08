@@ -10,3 +10,5 @@ const getData = async ()=>{
 module.exports = {
     default: getData
 }
+
+

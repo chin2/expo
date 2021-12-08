@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import WebViewScreen from './pages/webViewScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,8 @@ function App() {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen options={{title:'welcome'}}
         name="Home" component={Home} />
+
+        <Stack.Screen name="webview" component={WebViewScreen} />
         
       </Stack.Navigator>
     </NavigationContainer>
